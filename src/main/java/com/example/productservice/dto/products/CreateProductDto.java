@@ -12,6 +12,9 @@ public class CreateProductDto {
     private String title;
     private String description;
     private Double price;
+    private Long priceMinor;
+    private String currency;
+    private Long version;
     private String imageUrl;
     private String categoryName;
 
@@ -21,6 +24,9 @@ public class CreateProductDto {
         responseDto.setDescription(product.getDescription());
         responseDto.setTitle(product.getTitle());
         responseDto.setPrice(product.getPrice());
+        responseDto.setPriceMinor(product.getPriceMinor());
+        responseDto.setCurrency(product.getCurrency());
+        responseDto.setVersion(product.getVersion());
         responseDto.setImageUrl(product.getImageURL());
 
         return responseDto;
@@ -30,7 +36,12 @@ public class CreateProductDto {
         productModel product = new productModel();
         product.setTitle(this.title);
         product.setDescription(this.description);
-        product.setPrice(this.price);
+        if (this.priceMinor != null) {
+            product.setPriceMinor(this.priceMinor);
+        } else {
+            product.setPrice(this.price);
+        }
+        product.setCurrency(this.currency);
         product.setImageURL(this.imageUrl);
         Category category = new Category();
         category.setName(categoryName);

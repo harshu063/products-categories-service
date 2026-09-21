@@ -65,8 +65,11 @@ public class productServiceDBimpl implements productService {
         if(product.getDescription() !=null){
          productToUpdate.setDescription(product.getDescription());
         }
-        if(product.getPrice()!=null){
-            productToUpdate.setPrice(product.getPrice());
+        if(product.getPriceMinor()!=null){
+            productToUpdate.setPriceMinor(product.getPriceMinor());
+        }
+        if(product.getCurrency()!=null){
+            productToUpdate.setCurrency(product.getCurrency());
         }
         if(product.getTitle()!=null){
             productToUpdate.setTitle(product.getTitle());
@@ -101,7 +104,8 @@ public class productServiceDBimpl implements productService {
 
     @Override
     public productModel getProductById(Long id) {
-        return null;
+        return productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found with id " + id));
     }
     @Override
     public productModel replaceProduct(Long productId, productModel product) {
@@ -118,7 +122,8 @@ public class productServiceDBimpl implements productService {
 
         existingProduct.setTitle(product.getTitle());
         existingProduct.setDescription(product.getDescription());
-        existingProduct.setPrice(product.getPrice());
+        existingProduct.setPriceMinor(product.getPriceMinor());
+        existingProduct.setCurrency(product.getCurrency());
         existingProduct.setImageURL(product.getImageURL());
 
         // handle category (same logic )

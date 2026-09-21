@@ -13,6 +13,9 @@ public class createProductResponsedto {
     private String title;
     private String description;
     private Double price;
+    private Long priceMinor;
+    private String currency;
+    private Long version;
     private String category;
     private String ImageUrl;
 
@@ -23,6 +26,9 @@ public class createProductResponsedto {
         responsedto.setDescription(productModel.getDescription());
         responsedto.setTitle(productModel.getTitle());
         responsedto.setPrice(productModel.getPrice());
+        responsedto.setPriceMinor(productModel.getPriceMinor());
+        responsedto.setCurrency(productModel.getCurrency());
+        responsedto.setVersion(productModel.getVersion());
         responsedto.category = productModel.getCategory().getName();
        return responsedto;
     }
