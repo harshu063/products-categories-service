@@ -11,6 +11,8 @@ public class createProductRequestdto {
     private String title;
     private String description;
     private Double price;
+    private Long priceMinor;
+    private String currency;
     private String categoryName;
 
 
@@ -18,7 +20,12 @@ public class createProductRequestdto {
         productModel productModel = new productModel();
         productModel.setTitle(this.title);
         productModel.setDescription(this.description);
-        productModel.setPrice(this.price);
+        if (this.priceMinor != null) {
+            productModel.setPriceMinor(this.priceMinor);
+        } else {
+            productModel.setPrice(this.price);
+        }
+        productModel.setCurrency(this.currency == null ? "INR" : this.currency);
         Category  category = new Category();
         category.setName(categoryName);
         productModel.setCategory(category);

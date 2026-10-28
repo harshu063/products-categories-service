@@ -13,6 +13,9 @@ public class GetProductDto {
     private String title;
     private String description;
     private double price;
+    private Long priceMinor;
+    private String currency;
+    private Long version;
     private String imageUrl;
 
     public static GetProductDto from(productModel product) {
@@ -21,6 +24,9 @@ public class GetProductDto {
         getProductResponseDto.setDescription(product.getDescription());
         getProductResponseDto.setImageUrl(product.getImageURL());
         getProductResponseDto.setPrice(product.getPrice());
+        getProductResponseDto.setPriceMinor(product.getPriceMinor());
+        getProductResponseDto.setCurrency(product.getCurrency());
+        getProductResponseDto.setVersion(product.getVersion());
         getProductResponseDto.setTitle(product.getTitle());
         return getProductResponseDto;
     }

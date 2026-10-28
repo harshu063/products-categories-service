@@ -3,7 +3,6 @@ package com.example.productservice.controllers;
 import com.example.productservice.dto.products.*;
 import com.example.productservice.models.productModel;
 import com.example.productservice.service.productService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class productController {
 //
 //    }
 
-        public productController (@Qualifier("fakeStoreProductService") productService productService){
+        public productController (productService productService){
         this.productService=productService;
 
     }

@@ -5,13 +5,11 @@ import com.example.productservice.dto.fakeStore.fakeStorebodyRequestdto;
 import com.example.productservice.dto.fakeStore.fakeStoreGetbodyResponsedto;
 import com.example.productservice.models.productModel;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@Service("fakeStoreProductService")
 public class productServicefakestoreimpl implements productService {
     private RestTemplate restTemplate;
     private final RedisTemplate<String, Object> redisTemplate;
